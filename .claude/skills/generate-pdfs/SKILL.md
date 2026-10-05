@@ -1,6 +1,6 @@
 ---
 name: generate-pdfs
-description: Convert application markdown files (resume and cover letter) to styled PDFs
+description: Convert application markdown files (resume, cover letter and references) to styled PDFs
 argument-hint: <CompanyName>
 ---
 
@@ -28,4 +28,5 @@ The script handles file discovery, PDF conversion, page count reporting, and war
 
 - Always run the script from the repository root directory.
 - The CSS files live in `.claude/skills/generate-pdfs/` and must not be modified.
-- Do not convert Interview Talking Points or any other files, only resumes and cover letters.
+- Do not convert Interview Talking Points or any other files, only resumes, cover letters and professional references.
+- References use the application folder's `references.md` if present, otherwise `Inputs/references.md`. The script skips them while the file still contains template placeholders.

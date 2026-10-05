@@ -12,11 +12,11 @@ Project-level instructions for Claude Code. These apply to every skill and sessi
 
 Internal working files use hyphenated lowercase:
 - `lead-tracker.md`, `closed-leads-archive.md`
-- `Inputs/resume.md`, `Inputs/cover-letter.md`, `Inputs/experience-bank.md`, `Inputs/preferences.md`
+- `Inputs/resume.md`, `Inputs/cover-letter.md`, `Inputs/references.md`, `Inputs/experience-bank.md`, `Inputs/preferences.md`
 - Per-application source files: `resume.md`, `cover-letter.md`, `company-profile.md`, `jd.md`, `interview-talking-points.md`
 
 Recruiter-facing PDF outputs use human-friendly names with spaces:
-- `[Your Name] - Resume.pdf`, `[Your Name] - Cover Letter.pdf`
+- `[Your Name] - Resume.pdf`, `[Your Name] - Cover Letter.pdf`, `[Your Name] - Professional References.pdf`
 
 ## Skill Ownership
 

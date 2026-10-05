@@ -1,0 +1,34 @@
+/* Layered on top of cover-letter.css so references share the cover letter design */
+
+/* Page title ("Professional References"); .header h1 keeps its own style */
+h1 {
+  font-size: 14pt;
+  font-weight: 400;
+  color: #4a86c8;
+  margin: 0 0 10pt 0;
+}
+
+/* One numbered entry per reference */
+ol {
+  margin: 0;
+  padding-left: 16pt;
+}
+
+ol > li {
+  margin-bottom: 12pt;
+  page-break-inside: avoid;
+}
+
+/* Reference details */
+ol ul {
+  margin: 3pt 0 0 0;
+  padding-left: 14pt;
+}
+
+ol ul li {
+  margin: 0 0 1pt 0;
+}
+
+li p {
+  margin: 0;
+}
