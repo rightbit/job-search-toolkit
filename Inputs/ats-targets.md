@@ -29,3 +29,30 @@ node Scripts/query-ats.mjs --targets Inputs/ats-targets.md --title-keywords "VP,
 | Insomnia Cookies | lever | insomniacookies | Had a PHP/Laravel Director of Engineering role |
 | Life.Church | lever | life | Edmond OK, digital product engineering |
 | Prompt | ashby | Prompt | Healthcare SaaS for rehab therapy |
+| GameChanger | ashby | gamechanger | NYC/remote youth sports app (DICK'S); TypeScript/Node.js |
+| Feathr | ashby | feathr | Nonprofit marketing SaaS, ~117 employees, fully remote |
+| Sailor Health | ashby | sailorhealth | Seed-stage AI + behavioral health for older adults, NYC onsite |
+| Opal Security | ashby | Opal | Series B identity security, 11-50 employees, SF/NYC |
+| Help Scout | ashby | helpscout | Remote customer support SaaS; PHP shop (had EM, PHP role) |
+| Engine | greenhouse | engine | Business travel booking platform, remote US |
+| Federato | greenhouse | federato | AI insurance underwriting SaaS, remote |
+| NetBox Labs | ashby | netboxlabs | Open-source network automation, US remote |
+| Spark Advisors | greenhouse | sparkadvisors | Medicare advisory platform, remote |
+| GitLab | greenhouse | gitlab | All-remote DevSecOps platform (Ruby/Go) |
+| Headway | ashby | headway | Mental health care network; remote PM roles, NYC engineering |
+| Givebutter | ashby | givebutter | Nonprofit fundraising platform; Laravel/PHP + React/TypeScript, remote |
+| Horizon3.ai | ashby | horizon3ai | Autonomous pentesting/security SaaS; many remote US EM roles |
+| Affirm | greenhouse | affirm | Consumer fintech (BNPL); remote US engineering managers |
+| Mural | ashby | mural | Visual collaboration SaaS; remote US |
+| Qualtrics | greenhouse | qualtrics | Provo/SLC experience-management SaaS (Utah roles plus global) |
+| Lucid Software | greenhouse | lucidsoftware | SLC/South Jordan visual collaboration SaaS |
+| Filevine | lever | filevine | SLC legal-tech SaaS; many Utah roles |
+| Canopy | greenhouse | canopytax | Draper UT accounting practice-management SaaS |
+| BILL (Divvy) | greenhouse | billcom | Divvy spend management (Utah), BILL fintech |
+| Recursion | greenhouse | recursionpharmaceuticals | SLC AI drug discovery |
+| Route | greenhouse | route | Lehi e-commerce package protection and tracking |
+| Neighbor | lever | neighbor | Lehi storage marketplace |
+| MasterControl | greenhouse | mastercontrol | SLC quality-management SaaS (life sciences) |
+| Awardco | greenhouse | awardco | Lindon UT employee recognition SaaS |
+| SoFi | greenhouse | sofi | Fintech with Utah presence (consumer lending, check fit) |
+| Brex | greenhouse | brex | Fintech with SLC hub |

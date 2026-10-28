@@ -18,7 +18,7 @@ The argument is optional:
 Read `Inputs/preferences.md` for the full set of job search preferences including target roles, company criteria, compensation, location, excluded industries, and work environment requirements. Use the criteria there to filter and rank results.
 
 Key filters to apply when searching (drawn from Preferences.md):
-- Target titles (e.g., CTO, VP of Engineering, Head of Engineering)
+- Target titles (e.g., CTO, VP of Engineering, Head of Engineering, Engineering Manager)
 - Company stage (e.g., Series A through Series C)
 - Industry focus and exclusions
 - Team size sweet spot
@@ -45,18 +45,19 @@ Read `lead-tracker.md` (if it exists) to identify leads already tracked. Also re
 
 Run WebSearch queries across these sources. If a focus keyword was provided, append it to each query.
 
-1. **LinkedIn Jobs:** `"VP of Engineering" OR "Head of Engineering" OR "CTO" site:linkedin.com/jobs SaaS`
-2. **Wellfound:** `"VP of Engineering" OR "CTO" site:wellfound.com`
-3. **Y Combinator:** `"VP of Engineering" OR "CTO" site:workatastartup.com`
-4. **Built In:** `CTO OR "VP Engineering" site:builtin.com SaaS`
-5. **The Ladders:** `"VP of Engineering" OR "CTO" site:theladders.com SaaS`
-6. **EngMgrJobs:** `"VP of Engineering" OR "CTO" site:engmgrjobs.com`
-7. **Welcome to the Jungle:** `"VP of Engineering" OR "CTO" site:welcometothejungle.com`
-8. **General web:** `"VP of Engineering" OR "CTO" SaaS startup "Series A" OR "Series B" OR "Series C"`
-9. **Hacker News:** Search for the most recent "Ask HN: Who is hiring?" thread. If found, WebFetch the thread page and extract any comments mentioning your target titles at SaaS companies.
-10. **Silicon Slopes (regional):** WebFetch `https://jobs.siliconslopes.com/jobs/` and scan for target titles. Utah's tech community job board; update to your own region's equivalent community job board if not Utah-based.
-11. **Himalayas:** `"VP of Engineering" OR "CTO" site:himalayas.app` or WebFetch `https://himalayas.app/jobs/cto` and `https://himalayas.app/jobs/vp-of-engineering` directly. Remote-focused board; apply the usual industry exclusion filters, it surfaces some crypto/blockchain listings.
-12. **Recruiting from Scratch:** WebFetch `https://www.recruitingfromscratch.com/roles/cto`, `https://www.recruitingfromscratch.com/roles/vp-of-engineering`, and `https://www.recruitingfromscratch.com/roles/svp-of-engineering`. Technical recruiting firm with dedicated public listings for these titles at VC-backed startups.
+1. **LinkedIn Jobs:** `"VP of Engineering" OR "Head of Engineering" OR "Engineering Manager" OR "CTO" site:linkedin.com/jobs SaaS`
+2. **Wellfound:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" site:wellfound.com`
+3. **Y Combinator:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" site:workatastartup.com`
+4. **Built In:** WebFetch the city listing pages directly; they return current postings with salary and posted date in one request, which is far more productive than site search. Use your metro (examples for Utah): `https://builtin.com/jobs/provo/dev-engineering/management`, `https://builtin.com/jobs/salt-lake-city/dev-engineering/management`, and `https://builtin.com/jobs/provo/product/product-manager`. These pages include remote roles open to the region. Individual Built In job pages often 404 after a posting closes, so freshness-check shortlisted roles against the company's own ATS. Fall back to WebSearch `CTO OR "VP Engineering" OR "Engineering Manager" site:builtin.com SaaS` only if the city pages fail.
+5. **The Ladders:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" site:theladders.com SaaS`
+6. **EngMgrJobs:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" site:engmgrjobs.com`
+7. **Welcome to the Jungle:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" site:welcometothejungle.com`
+8. **General web:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" SaaS startup "Series A" OR "Series B" OR "Series C"`
+9. **Hacker News:** Use the public Algolia API instead of scraping the thread page. Find the latest thread with `curl -s "https://hn.algolia.com/api/v1/search_by_date?tags=story,author_whoishiring&query=who%20is%20hiring"`, then fetch all top-level comments with `curl -s "https://hn.algolia.com/api/v1/items/<objectID>"` and filter comment text for your target titles (and focus keyword, if any). Each comment's first line usually holds company, role, location and remote status.
+10. **Himalayas:** `"VP of Engineering" OR "Engineering Manager" OR "CTO" site:himalayas.app` or WebFetch `https://himalayas.app/jobs/cto`, `https://himalayas.app/jobs/vp-of-engineering`, and `https://himalayas.app/jobs/engineering-manager` directly. Remote-focused board; apply the usual industry exclusion filters, it surfaces some crypto/blockchain listings.
+11. **Larajobs (Laravel/PHP):** WebFetch `https://larajobs.com/` and scan every listing for target titles. Official Laravel job board; most listings are senior IC roles, so keep only leadership titles (and Staff-level IC if preferences allow). Note that individual listings often redirect to an external page (Notion, Workable, company site).
+12. **TopStartups:** WebFetch `https://topstartups.io/jobs/?role=Vp+Engineering` (swap the `role` value for other target titles). Lists company size and funding stage for each posting, which helps when filtering by team size or stage.
+13. **EdTech.com (education):** WebSearch `"Director" OR "Engineering Manager" OR "Product Manager" site:edtech.com/jobs`. Surfaces education-sector roles (universities, K-12, edtech). The site is often behind Cloudflare, so posting freshness may need to be confirmed another way.
 
 ### Step 2b: Search VC portfolio job boards
 
@@ -74,7 +75,7 @@ The examples below are Utah-focused; replace with VCs relevant to your metro are
 | Kickstart Fund | https://jobs.kickstart.com/jobs | Pre-seed/seed, Mountain West |
 | Peterson Ventures | https://jobs.petersonventures.com | Early-stage digital commerce + SaaS, SLC-based |
 | Album VC | https://jobs.albumvc.com/jobs (or WebSearch `site:albumvc.com` if no board found) | Seed/Series A, Lehi UT-based (Podium, Filevine, Divvy in portfolio) |
-| Sorenson Capital | https://www.sorensoncapital.com/portfolio (WebSearch `"CTO" OR "VP of Engineering" site:sorensoncapital.com` for linked postings) | Early/growth-stage B2B software, cybersecurity, DevOps, Lehi UT-based |
+| Sorenson Capital | https://www.sorensoncapital.com/portfolio (WebSearch `"CTO" OR "VP of Engineering" OR "Engineering Manager" site:sorensoncapital.com` for linked postings) | Early/growth-stage B2B software, cybersecurity, DevOps, Lehi UT-based |
 
 **National VCs:**
 
@@ -91,9 +92,9 @@ The examples below are Utah-focused; replace with VCs relevant to your metro are
 **How to search VC job boards:**
 - For boards with search/filter capability: WebFetch the job board URL with a prompt asking to extract relevant roles at SaaS companies.
 - For boards without search: WebFetch the jobs page and scan for relevant titles.
-- For VCs with only a portfolio page (no job board): WebSearch `"CTO" OR "VP of Engineering" site:[vc-domain]` to find any linked job postings.
+- For VCs with only a portfolio page (no job board): WebSearch `"CTO" OR "VP of Engineering" OR "Engineering Manager" site:[vc-domain]` to find any linked job postings.
 - Note the source VC for each result so you know the company's investor backing.
-- **"Consider" platform boards (a16z, Accel, Bessemer, Sapphire, Pelion, and others use this vendor):** These boards actively block headless/non-browser traffic, both WebFetch and the Playwright CLI (`fetch-rendered.mjs`) typically fail (empty shell content, or the CLI errors with "Download is starting"). Do not spend WebFetch/CLI budget retrying the board URL directly. Instead go straight to the site-scoped WebSearch fallback (`"VP of Engineering" OR "CTO" site:jobs.[vc-domain]`), which reaches Google's index of individual job postings even though the board itself won't render.
+- **"Consider" platform boards (a16z, Accel, Bessemer, Sapphire, Pelion, and others use this vendor):** These boards actively block headless/non-browser traffic, both WebFetch and the Playwright CLI (`fetch-rendered.mjs`) typically fail (empty shell content, or the CLI errors with "Download is starting"). Do not spend WebFetch/CLI budget retrying the board URL directly. Instead go straight to the site-scoped WebSearch fallback (`"VP of Engineering" OR "Engineering Manager" OR "CTO" site:jobs.[vc-domain]`), which reaches Google's index of individual job postings even though the board itself won't render.
 
 ### Step 2c: Query ATS platforms directly
 
@@ -103,7 +104,7 @@ If `Inputs/ats-targets.md` doesn't exist yet, copy it from `Inputs/ats-targets.t
 
 Run:
 ```
-node Scripts/query-ats.mjs --targets Inputs/ats-targets.md --title-keywords "VP,CTO,Head of Engineering,SVP,Vice President,Senior Vice President"
+node Scripts/query-ats.mjs --targets Inputs/ats-targets.md --title-keywords "VP,CTO,Head of Engineering,SVP,Vice President,Senior Vice President,Engineering Manager"
 ```
 
 This queries every company in `Inputs/ats-targets.md` in parallel and returns only postings whose title matches one of the keywords (word-boundary matched, not naive substring, so it won't false-positive on things like "Director" containing "cto").
@@ -121,6 +122,23 @@ Add a row to `Inputs/ats-targets.md` with the company name, platform, slug, and 
 node Scripts/query-ats.mjs --platform greenhouse --company medrio
 node Scripts/query-ats.mjs --platform ashby --company bankjoy --title-keywords "VP,Engineering"
 ```
+
+### Step 2d: Query remote job board feeds
+
+Four remote-focused boards publish public JSON or RSS feeds: Remotive, Remote OK, We Work Remotely (one RSS feed per category) and Working Nomads. Their own search parameters are loose, so the script pulls each feed and filters titles locally with the same word-boundary matching as the ATS script. No JS rendering and no bot blocking.
+
+Run:
+```
+node Scripts/query-remote-boards.mjs --title-keywords "Engineering Manager,Director of Engineering,VP of Engineering,Head of Engineering,CTO" --days 30
+```
+
+Options:
+- `--keyword <term>`: also require the term in the title, description or tags (for example the run's focus keyword, or a technology like `PHP`).
+- `--days <n>`: drop postings older than n days.
+- `--sources remotive,remoteok,weworkremotely,workingnomads`: limit to specific boards.
+- `--format json`: structured output.
+
+Notes: these feeds skew toward "Anywhere in the World" or global-remote postings, so check each result's location restrictions and confirm US eligibility. We Work Remotely postings link to the WWR listing, which usually points to the company's own ATS; freshness-check through that ATS when possible (Step 4.5).
 
 ### Step 3: Filter and deduplicate
 
